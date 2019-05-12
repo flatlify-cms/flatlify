@@ -1,0 +1,24 @@
+{
+  "name": "flatlify",
+  "version": "0.0.1",
+  "description": "Flat file NodeJS based CMS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/flatlify/flatlify.git"
+  },
+  "keywords": [
+    "flat-file",
+    "cms",
+    "nodejs"
+  ],
+  "author": "@sergesemashko",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/flatlify/flatlify/issues"
+  },
+  "homepage": "https://github.com/flatlify/flatlify#readme"
+}
