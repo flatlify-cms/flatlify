@@ -1,9 +1,12 @@
-const fieldType = require('core/entities/field-type');
+const fieldType = require('./field-type');
+const contentTypes = require('../../configs/content-types');
 
 const getContentTypeSchema = (contentType) => {
-  return {};
+  return contentTypes[contentType];
 };
-const listContentTypes = () => {};
+
+const listContentTypes = () => contentTypes;
+
 const getContentTypeMeta = (contentType) => {
   const config = getContentTypeSchema(contentType);
   const fields = config.fields.map(field => {
@@ -29,7 +32,9 @@ const contentRenderer = (contentTypeMeta, data) => {
 
 }
 
+const updateContentTypeMeta = (contentTypeMeta, data) => {
 
+}
 
 module.exports = {
   listContentTypes,

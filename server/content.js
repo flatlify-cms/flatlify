@@ -10,7 +10,7 @@ const save = (contentType, contentName, data, cb) => {
 const load = (contentType, contentSlug, cb) => {
   const filePath = path.resolve('_content', contentType, contentSlug + '.json');
   fs.readFile(filePath, (err, data) => {
-    cb(JSON.parse(data.toString()));
+    cb(JSON.parse(String(data)));
   });
 };
 

@@ -2,6 +2,7 @@ import React from 'react';
 import Button from '@material-ui/core/Button'
 import {Form, Text } from 'informed';
 import {load, save} from '../../../core/client/api/content';
+import {getContentTypeMeta} from '../../../core/entities/content-type';
 
 const Edit = ({content}) => (
   <Form initialValues={content} onSubmit={values => {
@@ -16,9 +17,9 @@ const Edit = ({content}) => (
 );
 
 Edit.getInitialProps = async ({query}) => {
-  const content = await load(query.slug);
-  const type = await load(query.type);
-  return { content };
+  const content = await load(query.contentType, query.slug);
+  const typeSchema = await getContentTypeMeta(query.contentType);
+  return { content, typeSchema };
 }
 
 export default Edit;

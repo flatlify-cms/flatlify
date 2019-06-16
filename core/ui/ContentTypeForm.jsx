@@ -1,6 +1,6 @@
 import React from 'react';
-import {Form} from 'informed';
-import {save} from '../../server/content';
+import { Form } from 'informed';
+import { save } from '../../server/content';
 
 const ContentTypeForm = (contentTypeMeta, data = {}) => {
 

@@ -7,6 +7,7 @@ const app = next({ dev })
 const handle = app.getRequestHandler()
 
 const content = require('./content');
+const contentType = require('./content-type');
 
 app.prepare().then(() => {
   const server = express()
@@ -16,6 +17,11 @@ app.prepare().then(() => {
 
   server.get('/_api/content', (req, res) => {
     return content.listTypes((files) => {
+      res.send(JSON.stringify(files));
+    })
+  })
+  server.get('/_api/content-type/:type', (req, res) => {
+    return contentType.loadSchema(req.params.type, (files) => {
       res.send(JSON.stringify(files));
     })
   })

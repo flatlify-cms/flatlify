@@ -1,16 +1,12 @@
-import React from 'react';
-import Input from '@material-ui/core/Input';
+const React = require('react');
+const Input = require('@material-ui/core/Input');
 
-const Renderer = ({onChange, value}) => {
+export const Renderer = ({onChange, value}) => {
   return <Input onChange={onChange} value={value} />;
 };
 
-const validator = ({value, required}) => {
+export const validator = ({value, required}) => {
 
 };
 
-module.exports = {
-  Renderer,
-  validator,
-  defaultValue: ''
-};
+export const defaultValue = '';
