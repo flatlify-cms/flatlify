@@ -1,22 +1,22 @@
 import React from 'react';
 import { Form } from 'informed';
-import { save } from '../../server/content';
+import Button from '@material-ui/core/Button';
 
-const ContentTypeForm = (contentTypeMeta, data = {}) => {
-
+const ContentTypeForm = ({ typeSchema, initialValues = {}, onSave}) => {
+  console.log(typeSchema.fields)
   return (<Form
-    initialValues={data}
-    onSubmit={values => {
-      save(values.slug, values);
-    }}
+    initialValues={initialValues}
+    onSubmit={onSave}
   >
-    {({ formApi }) => (contentTypeMeta.fields.map(field => {
-      const value = formApi.getValue(field.name) || field.defaultValue;
-      return <field.Renderer
-        value={value}
-        onChange={value => formApi.setValue(field.name, value)}
-      > </field.Renderer>
-    }))}
+    <div>
+      {typeSchema.fields.map(field => {
+        return <field.Renderer
+          field={field.name}
+          label={field.name}
+        />;
+      })}
+      <Button type="submit">Save</Button>
+    </div>
   </Form>);
 }
 
