@@ -16,12 +16,13 @@ const getContentTypeMeta = (contentType) => {
       ...fieldMeta
     };
   });
+  console.log(fields);
 
   return {
     ...config,
     type: contentType,
     fields
-  }
+  };
 };
 
 const setContentTypeSchema = (contentType, contentTypeMeta) => {

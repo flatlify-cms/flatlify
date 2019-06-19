@@ -3,18 +3,16 @@ import Button from '@material-ui/core/Button'
 import {Form, Text } from 'informed';
 import {load, save} from '../../../core/client/api/content';
 import {getContentTypeMeta} from '../../../core/entities/content-type';
+import ContentTypeForm from '../../../core/ui/ContentTypeForm';
 
-const Edit = ({content}) => (
-  <Form initialValues={content} onSubmit={values => {
-    save(values.slug, values);
-  }}>
-
-    <Button type="submit">Save</Button>
-    <Text field="slug" />
-    <Text field="data" />
-
-  </Form>
-);
+const Edit = ({content, typeSchema}) => (
+  <ContentTypeForm 
+    initialValues={content} 
+    typeSchema={typeSchema}
+    onSave={values => {
+      save(content.type, values.slug, values);
+    }}
+  />);
 
 Edit.getInitialProps = async ({query}) => {
   const content = await load(query.contentType, query.slug);
