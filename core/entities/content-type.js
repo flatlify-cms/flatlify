@@ -1,19 +1,19 @@
 const fieldType = require('./field-type');
 const contentTypes = require('../../configs/content-types');
 
-const getContentTypeSchema = (contentType) => {
+const getContentTypeSchema = contentType => {
   return contentTypes[contentType];
 };
 
 const listContentTypes = () => contentTypes;
 
-const getContentTypeMeta = (contentType) => {
+const getContentTypeMeta = contentType => {
   const config = getContentTypeSchema(contentType);
   const fields = config.fields.map(field => {
     const fieldMeta = fieldType.getFieldMeta(field.type);
     return {
       ...field,
-      ...fieldMeta
+      ...fieldMeta,
     };
   });
   console.log(fields);
@@ -21,21 +21,19 @@ const getContentTypeMeta = (contentType) => {
   return {
     ...config,
     type: contentType,
-    fields
+    fields,
   };
 };
 
-const setContentTypeSchema = (contentType, contentTypeMeta) => {
+// const setContentTypeSchema = (contentType, contentTypeMeta) => {
 
-};
+// };
 
-const contentRenderer = (contentTypeMeta, data) => {
+// const contentRenderer = (contentTypeMeta, data) => {
 
-}
+// }
 
-const updateContentTypeMeta = (contentTypeMeta, data) => {
-
-}
+const updateContentTypeMeta = (contentTypeMeta, data) => {};
 
 module.exports = {
   listContentTypes,
