@@ -11,6 +11,11 @@
       "type": "text",
       "required": true,
       "name": "data"
+    },
+    {
+      "type": "multiline-text",
+      "required": true,
+      "name": "multi-data"
     }
   ]
 }
