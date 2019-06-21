@@ -18,14 +18,14 @@ const load = (contentType, contentSlug, cb) => {
 const list = (type, cb) => {
   const contentDir = path.resolve('_content', type);
   readFiles(contentDir, cb);
-}
+};
 
-const listTypes = (cb) => {
+const listTypes = cb => {
   const contentDir = path.resolve('configs', 'content-types');
-  readFiles(contentDir, (types) => {
+  readFiles(contentDir, types => {
     cb(types.map(entry => entry.type));
   });
-}
+};
 
 function readFiles(dirname, cb) {
   fs.readdir(dirname, function(err, filenames) {
@@ -34,17 +34,19 @@ function readFiles(dirname, cb) {
       return;
     }
 
-    Promise.all(filenames.map(function(filename) {
-      return new Promise((resolve, reject) => {
-        fs.readFile(path.resolve(dirname, filename), 'utf-8', function(err, content) {
-          if (err) {
-            console.error(err);
-            reject();
-          }
-          resolve(JSON.parse(content))
+    Promise.all(
+      filenames.map(function(filename) {
+        return new Promise((resolve, reject) => {
+          fs.readFile(path.resolve(dirname, filename), 'utf-8', function(err, content) {
+            if (err) {
+              console.error(err);
+              reject();
+            }
+            resolve(JSON.parse(content));
+          });
         });
-      });
-    })).then(files => {
+      }),
+    ).then(files => {
       cb(files);
     });
   });
