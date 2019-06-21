@@ -3,11 +3,11 @@ const fieldTypes = require('../../configs/field-types');
 const list = () => {
   return fieldTypes;
 };
-const getFieldMeta = (fieldType) => fieldTypes[fieldType];
+const getFieldComponentByType = fieldType => fieldTypes[fieldType].Renderer;
 const setFieldMeta = (fieldType, fieldMeta) => {};
 
 module.exports = {
   list,
-  getFieldMeta,
+  getFieldComponentByType,
   setFieldMeta,
 };
