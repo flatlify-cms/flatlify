@@ -1,0 +1,16 @@
+{
+  "type": "post",
+  "description": "post",
+  "fields": [
+    {
+      "type": "text",
+      "required": true,
+      "name": "slug"
+    },
+    {
+      "type": "multiline-text",
+      "required": true,
+      "name": "data"
+    }
+  ]
+}

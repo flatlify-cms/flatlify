@@ -1,0 +1,16 @@
+{
+  "type": "article",
+  "description": "article",
+  "fields": [
+    {
+      "type": "text",
+      "required": true,
+      "name": "slug"
+    },
+    {
+      "type": "text",
+      "required": true,
+      "name": "data"
+    }
+  ]
+}
