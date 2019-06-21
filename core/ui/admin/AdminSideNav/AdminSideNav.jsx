@@ -29,7 +29,7 @@ const AdminSideNav = props => {
     <Drawer open variant="permanent">
       <div className={classes.toolbar}>
         <div className={classes.logo}>
-          <h1>Flattify</h1>
+          <h1>Flatlify</h1>
         </div>
 
         <Divider />
