@@ -3,7 +3,6 @@ const fs = require('fs');
 const path = require('path');
 
 const save = (contentType, contentName, data, cb) => {
-  console.log(data);
   const filePath = path.resolve('_content', contentType, contentName + '.json');
   fse.outputFile(filePath, data, cb);
 };
@@ -24,6 +23,34 @@ const listTypes = cb => {
   const contentDir = path.resolve('configs', 'content-types');
   readFiles(contentDir, types => {
     cb(types.map(entry => entry.type));
+  });
+};
+
+const mediaList = cb => {
+  const contentDir = path.resolve('static');
+  fs.readdir(contentDir, (err, files) => {
+    cb(files);
+  });
+};
+
+const getMedia = (mediaName, cb) => {
+  const contentDir = path.resolve('static');
+  fs.readdir(contentDir, (err, files) => {
+    const checkMedia = files.includes(mediaName);
+    cb(checkMedia);
+  });
+};
+
+const removeMedia = (name, cb) => {
+  const path = `static/${name}`;
+
+  fs.unlink(path, err => {
+    if (err) {
+      console.error(err);
+      return false;
+    }
+
+    return;
   });
 };
 
@@ -57,4 +84,7 @@ module.exports = {
   listTypes,
   save,
   load,
+  removeMedia,
+  mediaList,
+  getMedia,
 };
