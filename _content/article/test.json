@@ -1,5 +1,5 @@
 {
-  "type": "article",
   "slug": "test",
-  "data": "textasdfasdadsfa"
+  "data": "textasdfasdadsfa",
+  "multi-data": "multitext"
 }

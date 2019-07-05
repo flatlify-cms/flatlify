@@ -12,7 +12,7 @@ require('babel-register')({
     'react',
     'stage-1',
     'es2015',
-  ]
+  ],
 });
 
 require('./server/index');
