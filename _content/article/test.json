@@ -1,5 +1,6 @@
 {
   "slug": "test",
-  "data": "textasdfasdadsfa",
-  "multi-data": "multitext"
+  "data": "texta",
+  "multi-data": "multitext",
+  "media-data": "image.png"
 }

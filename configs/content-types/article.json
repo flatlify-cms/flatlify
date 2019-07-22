@@ -17,6 +17,10 @@
       "type": "multiline-text",
       "required": true,
       "name": "multi-data"
+    },
+    {
+      "type": "media",
+      "name": "media-data"
     }
   ]
 }
